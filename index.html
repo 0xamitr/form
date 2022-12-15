@@ -12,29 +12,58 @@
         <form>
             <div>
                 <label for="name">CHARACTER NAME</label>
-                <input type="text" placeholder="Character Name" name="name" id="name">
+                <input type="text" placeholder="Character Name" name="name" id="name" required>
             </div>
             <div>
                 <label for="email">EMAIL</label>
-                <input type="email" placeholder="Email" name="email" id="email">
+                <input type="email" placeholder="Email" name="email" id="email" required>
             </div>
             <div>
                 <label for="phone">PHONE</label>
-                <input type="number" placeholder="Phone Number" name="phone" id="phone">
+                <input type="tel" placeholder="Phone Number" name="phone" id="phone" required>
             </div>
             <div>
                 <label for="pass">PASSWORD</label>
-                <input type="password" placeholder="Enter the password" name="pass" id="phone">
+                <input type="password" placeholder="Enter the password" name="pass" id="pass" minlength="8" required>
             </div>
             <div>
                 <label for="confirm-pass">CONFIRM PASSWORD</label>
-                <input type="password" placeholder="Repeat the password" name="confirm-pass" id="confirm-pass">
+                <input type="password" placeholder="Repeat the password" name="confirm-pass" id="confirm-pass" minlength="8" required>
+            </div>
+            <div>
+                <label for="animal">CHOOSE YOUR ANIMAL</label>
+                <select name="Animals" id="animal">
+                    <option value="lion">LION</option>
+                    <option value="tiger">TIGER</option>
+                    <option value="whale">WHALE</option>
+                    <option value="elephant">ELEPHANT</option>
+                    <option value="wolf">WOLF</option>
+                    <option value="ford">Ford</option>
+                </select>
             </div>
             <div class="submit">
                 <input type="submit" value="SIGN UP" id="submit">
             </div>
         </form>
     </div>
-    <img src="lion.jpg">
+    <div>
+        <div class="abs">
+            <img src = "odin.png">
+            <h1>ODIN</h1>
+        </div>
+        <img src="lion.jpg">
+    </div>
+    <script>
+        let pass = document.getElementById("pass");
+        let passrepeat = document.getElementById("confirm-pass");
+        window.addEventListener("keyup", ()=>{
+            if (pass.value != passrepeat.value){
+                passrepeat.setCustomValidity("The password does not match!");
+            }
+            else{
+                passrepeat.setCustomValidity("");
+            }
+        })
+    </script>
 </body>
 </html>
